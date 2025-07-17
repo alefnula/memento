@@ -1,1 +1,8 @@
+# Python
+*.py[cod]
+
+# Environment
+.env
+
+# IDE
 .idea
