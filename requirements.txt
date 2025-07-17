@@ -2,3 +2,4 @@ pyobjc-framework-EventKit~=11.1
 pyobjc-framework-cocoa~=11.1
 python-dotenv~=1.1.1
 git+https://github.com/python-escpos/python-escpos.git
+textcase~=0.4.3
