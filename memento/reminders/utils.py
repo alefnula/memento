@@ -1,8 +1,9 @@
-from typing import Optional
 from datetime import datetime, timezone
+from typing import Optional
 
-from Foundation import NSDate, NSColor, NSCalendar # noqa: F401
-from EventKit import EKReminder, EKCalendar # noqa: F401
+from AppKit import NSColor  # noqa: F401
+from EventKit import EKReminder, EKCalendar  # noqa: F401
+from Foundation import NSDate, NSCalendar  # noqa: F401
 
 from memento.reminders.models import Reminder, Calendar
 
@@ -23,6 +24,7 @@ def datetime_from_ns_date(ns_date: Optional[NSDate]) -> Optional[datetime]:
         return datetime.fromtimestamp(timestamp, tz=timezone.utc)
     except:
         return None
+
 
 def hex_to_ns_color(color: Optional[str]) -> Optional[NSColor]:
     """Convert hex color string to NSColor.
@@ -73,7 +75,6 @@ def rgba_to_rgb(rgba: Optional[str]) -> Optional[str]:
     return None
 
 
-
 def reminder_from_ek(ek_reminder: EKReminder) -> Reminder:
     """Convert EKReminder to Reminder dataclass.
 
@@ -84,15 +85,22 @@ def reminder_from_ek(ek_reminder: EKReminder) -> Reminder:
         The converted Reminder object.
     """
     due_date = None
-    if hasattr(ek_reminder, 'dueDateComponents') and ek_reminder.dueDateComponents():
+    if hasattr(ek_reminder,
+               'dueDateComponents') and ek_reminder.dueDateComponents():
         components = ek_reminder.dueDateComponents()
         try:
-            year = components.year() if hasattr(components, 'year') and components.year() > 0 else 1970
-            month = components.month() if hasattr(components, 'month') and components.month() > 0 else 1
-            day = components.day() if hasattr(components, 'day') and components.day() > 0 else 1
-            hour = components.hour() if hasattr(components, 'hour') and components.hour() >= 0 else 0
-            minute = components.minute() if hasattr(components, 'minute') and components.minute() >= 0 else 0
-            due_date = datetime(year, month, day, hour, minute, tzinfo=timezone.utc)
+            year = components.year() if hasattr(components,
+                                                'year') and components.year() > 0 else 1970
+            month = components.month() if hasattr(components,
+                                                  'month') and components.month() > 0 else 1
+            day = components.day() if hasattr(components,
+                                              'day') and components.day() > 0 else 1
+            hour = components.hour() if hasattr(components,
+                                                'hour') and components.hour() >= 0 else 0
+            minute = components.minute() if hasattr(components,
+                                                    'minute') and components.minute() >= 0 else 0
+            due_date = datetime(year, month, day, hour, minute,
+                                tzinfo=timezone.utc)
         except:
             try:
                 calendar = NSCalendar.currentCalendar()

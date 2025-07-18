@@ -11,11 +11,11 @@ from memento.llm.prompt import PROMPT
 
 class ReminderOutput(BaseModel):
     title: str = Field(description="Short title for the reminder")
-    body: Optional[str] = Field(
-        description="Main content/body of the reminder",
+    text: Optional[str] = Field(
+        description="Main content/text of the reminder",
         default=None,
     )
-    url: Optional[str] = Field(
+    link: Optional[str] = Field(
         description="Any URL/link found in the reminder",
         default=None,
     )
@@ -46,7 +46,6 @@ class LLMProcessor:
             # Context window
             num_ctx=4096,
         )
-
 
     def process_reminder(self, text: str) -> ReminderOutput:
         """

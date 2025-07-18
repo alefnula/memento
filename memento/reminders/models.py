@@ -1,6 +1,6 @@
-from typing import Optional
-from datetime import datetime
 from dataclasses import dataclass
+from datetime import datetime
+from typing import Optional
 
 
 @dataclass
@@ -26,3 +26,8 @@ class Reminder:
     priority: int = 0
     calendar: Optional[str] = None
     url: Optional[str] = None
+
+    @property
+    def text(self) -> str:
+        """Return the reminder text, combining title and notes."""
+        return f"{self.title}\n{self.notes}".strip()

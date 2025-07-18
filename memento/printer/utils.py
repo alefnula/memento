@@ -5,11 +5,11 @@ from escpos.printer import Network
 
 
 def print_title(
-    p: Network,
-    text: str,
-    max_width: int = 20,
-    font_width: int = 2,
-    font_height: int = 2
+        p: Network,
+        text: str,
+        max_width: int = 20,
+        font_width: int = 2,
+        font_height: int = 2
 ):
     """Print a title with borders, splitting text across multiple lines.
 
@@ -50,12 +50,13 @@ def print_title(
     # Reset to normal text size
     p.set(align="left", normal_textsize=True)
 
+
 def print_body(
-    p: Network,
-    text: str,
-    max_width: int = 22,
-    font_width: int = 2,
-    font_height: int = 1
+        p: Network,
+        text: str,
+        max_width: int = 22,
+        font_width: int = 2,
+        font_height: int = 1
 ):
     """Print a body section splitting title across multiple lines.
 
@@ -91,12 +92,13 @@ def print_body(
     # Reset to normal text size
     p.set(align="left", normal_textsize=True)
 
+
 def print_assignee(
-    p: Network,
-    text: str,
-    max_width: int = 22,
-    font_width: int = 2,
-    font_height: int = 1
+        p: Network,
+        text: str,
+        max_width: int = 22,
+        font_width: int = 2,
+        font_height: int = 1
 ):
     """Print the assignee name.
 

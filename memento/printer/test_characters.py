@@ -153,6 +153,7 @@ class ThermalPrinterTester:
 
         print("Test complete! Check your printer output.")
 
+
 def main():
-   tester = ThermalPrinterTester()
-   tester.run_full_test()
+    tester = ThermalPrinterTester()
+    tester.run_full_test()
