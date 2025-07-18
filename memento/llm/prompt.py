@@ -9,10 +9,8 @@ Instructions:
 4. If there is @NAME mention, remove @ and set the rest as the assignee
 5. If any field doesn't exist in the text, set it to null
 
-{format}
-
 Reminder text to process:
 {text}
 
-Output:\
+Return the information in the required structured format.\
 """
