@@ -68,14 +68,7 @@ def print_body(
         font_height: Height multiplier for the text (default 1)
     """
     # Split title into words
-    lines = wrap(
-        textcase.title(
-            text,
-            boundaries=[textcase.SPACE],
-            strip_punctuation=False
-        ),
-        width=max_width,
-    )
+    lines = wrap(text, width=max_width)
 
     # Set text size and alignment
     p.set(
@@ -92,11 +85,24 @@ def print_body(
     # Reset to normal text size
     p.set(align="left", normal_textsize=True)
 
+def print_link(p: Network, link: str):
+    """Print a QR code for the given link.
+
+    Args:
+        p: ESC/POS printer object
+        link: The URL or link to print as a QR code
+    """
+    p.set(align="center")
+
+    # Print the QR code
+    p.qr(link, size=6)
+
+    # Reset to normal text size
+    p.set(align="left", normal_textsize=True)
 
 def print_assignee(
         p: Network,
         text: str,
-        max_width: int = 22,
         font_width: int = 2,
         font_height: int = 1
 ):
@@ -105,7 +111,6 @@ def print_assignee(
     Args:
         p: ESC/POS printer object
         text: The assignee name to print
-        max_width: Maximum characters per line (default 22)
         font_width: Width multiplier for the text (default 2)
         font_height: Height multiplier for the text (default 1)
     """

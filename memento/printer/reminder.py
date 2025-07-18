@@ -3,7 +3,7 @@ from typing import Optional
 
 from escpos.printer import Network
 
-from memento.printer.utils import print_title, print_body, print_assignee
+from memento.printer import utils
 
 
 def print_reminder(
@@ -25,15 +25,15 @@ def print_reminder(
         profile=os.environ.get("PRINTER_PROFILE"),
     )
     # Print the title
-    print_title(p, title)
+    utils.print_title(p, title)
     # Print the body text if provided
     if text is not None:
-        print_body(p, text)
+        utils.print_body(p, text)
     # Print the link if provided
     if link is not None:
-        p.qr(link)
+        utils.print_link(p, link)
     # Print the assignee name if provided
     if assignee is not None:
-        print_assignee(p, assignee)
+        utils.print_assignee(p, assignee)
     # Cut the paper
     p.cut()

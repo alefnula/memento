@@ -12,15 +12,15 @@ from memento.llm.prompt import PROMPT
 class ReminderOutput(BaseModel):
     title: str = Field(description="Short title for the reminder")
     text: Optional[str] = Field(
-        description="Main content/text of the reminder",
+        description="Main text of the reminder",
         default=None,
     )
     link: Optional[str] = Field(
-        description="Any URL/link found in the reminder",
+        description="Any link found in the reminder",
         default=None,
     )
     assignee: Optional[str] = Field(
-        description="Person assigned to this reminder",
+        description="Person assigned to do reminder",
         default=None,
     )
 

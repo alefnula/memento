@@ -24,7 +24,7 @@ def run():
         ):
             processed = processor.process_reminder(reminder.text)
             print_reminder(
-                title=reminder.title,
+                title=processed.title,
                 text=processed.text,
                 link=processed.link,
                 assignee=processed.assignee,
